@@ -1,0 +1,38 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  font-family: sans-serif;
+  border: none;
+  text-decoration: none;
+}
+
+body {
+  background: var(--primary);
+  color: var(--secondary) !important;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+
+.font-size{
+  font-size: 25px;
+}
+
+.button-outline{
+  color: var(--secondary);
+  border: 1px solid var(--secondary);
+  border-radius: 10px;
+  padding: 10px 30px;
+  text-decoration: none;
+  background: transparent;
+  text-align: center;
+}
+
+.button-outline:hover{
+  transition: .5s ease-in-out;
+  background: var(--secondary);
+  color: var(--primary);
+}
+
