@@ -4,6 +4,7 @@
   font-family: sans-serif;
   border: none;
   text-decoration: none;
+  outline: none;
 }
 
 body {
@@ -15,6 +16,28 @@ body {
   width: 0px;
 }
 
+.bg{
+  background: url(/images/particles/bgi.jpg);
+  background-size: cover;
+  background-position: center;
+}
+.bg-bg{
+  background: url(/images/particles/bg.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.mixture{
+  width: 100%;
+  height: 50px;
+  background: linear-gradient(to top,#001d2b,#001d2b0a);
+  margin-top: 200px;
+}
+
+.padding-top{
+  padding-top: 200px;
+  /* padding-bottom: 200px; */
+}
 
 .font-size{
   font-size: 25px;
@@ -36,3 +59,36 @@ body {
   color: var(--primary);
 }
 
+.center{
+  float: center;
+}
+
+.input{
+  /* width: 100%; */
+  border-radius: 10px;
+  padding: 10px 30px;
+  display: flex;
+  flex-direction: row;
+  border: var(--secondary) 1px solid;
+}
+
+.input input{
+  background: transparent;
+  /* width: 100%; */
+  /* border-right: #fff solid 5px; */
+  margin-left: 10px;
+  color: var(--secondary);
+}
+.input input::placeholder{
+  color: var(--secondary);
+}
+.input i{
+  margin-top: 2px;
+  /* margin-right: 5px; */
+}
+
+.outline{
+  border-radius: 15px;
+  border: #fff 1px solid;
+  padding: 50px;
+}
