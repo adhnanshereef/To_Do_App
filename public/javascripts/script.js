@@ -13,3 +13,19 @@ $("#login-verification").submit((e)=>{
           },
     })
 })
+
+$("#new-program").submit((e)=>{
+    e.preventDefault();
+    $.ajax({
+        url:'/new',
+        method:'post',
+        data: $("#new-program").serialize(),
+        success: (response) => {
+            if (response.success==true) {
+              location.href='/to-do'
+            } else {
+              location.href='/new'
+            }
+          },
+    })
+})

@@ -17,8 +17,9 @@ const verifyLogin = (req, res, next) => {
 };
 
 // Home
-router.get('/', (req, res, next)=> {
-  res.render('pages/index', { title: 'To Do App',me:req.session.me });
+router.get('/', async(req, res)=> {
+  let program=await helper.getProgram()
+  res.render('pages/index', { title: 'To Do App',me:req.session.me,program });
 });
 
 // Login
@@ -45,6 +46,25 @@ router.post('/login',(req,res)=>{
 router.get('/logout',verifyLogin,(req,res)=>{
   req.session.me=null
   res.redirect('/')
+})
+
+// To Do
+router.get('/to-do',verifyLogin,async(req,res)=>{
+  let program=await helper.getProgram()
+  res.render('pages/to-do',{title:"To Do App | To Do",me:req.session.me,program})
+})
+
+// New
+router.get('/new',verifyLogin,(req,res)=>{
+  res.render('pages/new',{me:req.session.me,title:"To Do App | New"})
+})
+
+router.post('/new',verifyLogin,(req,res)=>{
+  console.log(req.body);
+  helper.addProgram(req.body).then((status)=>{
+    console.log(status);
+    res.json(status)
+  })
 })
 
 module.exports = router;
