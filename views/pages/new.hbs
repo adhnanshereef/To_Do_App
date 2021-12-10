@@ -1,0 +1,48 @@
+<section class="padding-top bg-to-do">
+  <div class="container">
+    <h3 class="text-center"><i class="fas fa-clipboard-list"></i> New</h3>
+    <form id="new-program" class="mt-4">
+      <label class="mb-3" style="font-size: 20px;">Text</label>
+      <div class="input mb-5"><i class="fas fa-clipboard-list"></i><input
+          type="text"
+          name="text"
+          placeholder="Enter your text"
+          required
+        /></div>
+      <label class="mb-3" style="font-size: 20px;">Date</label>
+      <div class="input-date"><div class="input"><i
+            class="fas fa-calendar-day"
+          ></i><input
+            type="number"
+            name="dd"
+            minlength="2"
+            maxlength="2"
+            required
+            placeholder="dd"
+            value="01"
+          /></div><div class="input"><i class="fas fa-calendar-alt"></i><input
+            type="number"
+            name="mm"
+            minlength="2"
+            maxlength="2"
+            required
+            placeholder="mm"
+            value="01"
+          /></div><div class="input"><i class="fas fa-calendar"></i><input
+            type="number"
+            name="yyyy"
+            minlength="4"
+            maxlength="4"
+            required
+            placeholder="yyyy"
+            value="2021"
+          /></div></div>
+      <button
+        class="button-outline mt-5 text-center"
+        style="width: 100%;"
+        type="submit"
+      >Add</button>
+    </form>
+  </div>
+  <div class="mixture"></div>
+</section>

@@ -6,7 +6,7 @@
 
         <div class="col-md-8"><h1 class="ms-3 mt-5">Hi' Adhnan</h1>
         <p class="ms-5 col-md-8" >"Success is the result of perfection, hard work, learning from failure, loyalty, and persistence"</p>
-        <a class="button-outline ms-5" href="/todo" ><i class="fas fa-clipboard-list"></i> Todo</a>
+        <a class="button-outline ms-5" href="/#todo" ><i class="fas fa-clipboard-list"></i> To Do Today</a>
         </div>
         <div class="col-md-4 mt-5" style="display: flex;align-items: center;justify-content: center;"><i class="fas fa-fingerprint" style="font-size: 150px;" ></i></div>
         </div>
@@ -23,8 +23,31 @@
     <div class="mixture" ></div>
     </section>
     {{#if me}}
+    <section id="todo" class="bg-to-do" >
+        <div class="mixture-inv"></div>
+   <div class="container">
+        <a href="/new" class="button-outline mb-5" style="width: 100%;" >New</a>
+        {{#if program}}
+        <h3 class="text-center mb-5"><i class="fas fa-clipboard-list"></i> To Do Today</h3>
+        <div class="outline">
+            <p class="float-end">Data: {{program.date}}</p>
+            <ol class="mt-5 box">
+               {{#each program.program}}
+                <li class="mt-3" >
+                   <p>{{this.text}}</p> 
+                   <button class="button-outline">Done</button>
+                   <button class="button-outline">Drop</button>
+                </li>
+               {{/each}}
+            </ol>
+        </div>
+        {{/if}}
+    </div>
+    <div class="mixture"></div>
+</section>
     {{else}}
-        <section id="login" class="mt-5 mb-5" >
+        <section id="login" class="mt-5 mb-5 bg-bg" >
+            <div class="mixture-inv"></div>
        <div class="container">
            <h3 class="text-center mb-3"><i class="fas fa-fingerprint"></i> Login</h3>
            <form  id="login-verification"  >
@@ -35,6 +58,7 @@
                </div>
            </form>
        </div>
+       <div class="mixture"></div>
     </section>
     {{/if}}
 </section>
