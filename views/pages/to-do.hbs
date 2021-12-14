@@ -1,6 +1,6 @@
 <section class="padding-top bg-to-do" >
     <div class="container">
-        <a href="/new" class="button-outline mb-5" style="width: 100%;" >New</a>
+        <a href="/new" class="button-outline mb-5 float-start" style="width: 100%;" >New</a>
         {{#if program}}
         <h3 class="text-center mb-5"><i class="fas fa-clipboard-list"></i> To Do Today</h3>
         <div class="outline">
@@ -9,12 +9,14 @@
                {{#each program.program}}
                 <li class="mt-3" >
                    <p>{{this.text}}</p> 
-                   <button onclick="doneProgram('{{this.text}}','{{../program._id}}')" class="button-outline">Done</button>
-                   <button class="button-outline">Drop</button>
+                   <button onclick="doneProgram('{{this.text}}','{{../program._id}}')" class="button-outline-success">Done</button>
+                   <button class="button-outline-danger">Drop</button>
                 </li>
                {{/each}}
             </ol>
         </div>
+        {{else}}
+        <h6 class="text-center mb-5"><i class="fas fa-clipboard-list"></i> You are already completed your programs</h6>
         {{/if}}
     </div>
     <div class="mixture"></div>

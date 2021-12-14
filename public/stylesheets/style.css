@@ -73,6 +73,36 @@ body {
   background: var(--secondary);
   color: var(--primary);
 }
+.button-outline-danger{
+  color: var(--danger);
+  border: 1px solid var(--danger);
+  border-radius: 10px;
+  padding: 10px 30px;
+  text-decoration: none;
+  background: transparent;
+  text-align: center;
+}
+
+.button-outline-danger:hover{
+  transition: .5s ease-in-out;
+  background: var(--danger);
+  color: var(--primary);
+}
+.button-outline-success{
+  color: var(--success);
+  border: 1px solid var(--success);
+  border-radius: 10px;
+  padding: 10px 30px;
+  text-decoration: none;
+  background: transparent;
+  text-align: center;
+}
+
+.button-outline-success:hover{
+  transition: .5s ease-in-out;
+  background: var(--success);
+  color: var(--primary);
+}
 
 .center{
   float: center;
@@ -116,5 +146,9 @@ body {
 
 .box{
   max-height: 300px;
+  overflow-y: scroll;
+}
+.box{
+  max-height: 150px;
   overflow-y: scroll;
 }

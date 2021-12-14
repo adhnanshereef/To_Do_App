@@ -2,10 +2,12 @@
     <div class="container">
        {{#if done}}
         <h3 class="text-center">Done</h3>
+        <button onclick="deleteAllDone()" class="button-outline-danger mt-5 mb-5" style="width: 100%;">Delete all</button>
        {{#each done}}
         <div class="outline mb-3">
             <p class="float-end">Data: {{this.date}}</p>
-            <ol class="mt-5 box">
+            <button onclick="deleteDoned('{{this._id}}')" class="button-outline-danger" style="width: 150px;" >Delete</button>
+            <ol class="mt-5 box-done">
                {{#each this.program}}
                 <li class="mt-3" >
                    <p>{{this.text}}</p> 
@@ -15,7 +17,7 @@
         </div>
        {{/each}}
         {{else}}
-        <h3 class="text-center">You have no done</h3>
+        <h3 class="text-center"><i class="fas fa-folder-open"></i> Empty</h3>
         {{/if}}
     </div>
 </section>

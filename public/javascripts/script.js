@@ -62,3 +62,27 @@ function doneProgram(text,programId){
     }
   })
 }
+
+function deleteAllDone(){
+  $.ajax({
+    url:'/delete-all-done',
+    method:'get',
+    success:(response)=>{
+      if(response.success==true){
+        location.reload()
+      }
+    }
+  })
+}
+function deleteDoned(id){
+  $.ajax({
+    url:'/delete-doned/'+id,
+    method:'get',
+    success:(response)=>{
+      if(response.success==true){
+        location.reload()
+      }
+    }
+  })
+}
+

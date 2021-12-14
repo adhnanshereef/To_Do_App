@@ -2,7 +2,6 @@ var db = require("../config/connection");
 var collections = require("../config/collections");
 // const bcrypt = require("bcrypt");
 var objId = require("mongodb").ObjectId;
-const async = require("hbs/lib/async");
 
 
 module.exports = {
@@ -64,6 +63,20 @@ module.exports = {
         return new Promise(async(resolve,reject)=>{
             let done = await db.get().collection(collections.DONE_COLLECTION).find().toArray()
             resolve(done)
+        })
+    },
+    deleteAllDone:()=>{
+        return new Promise((resolve,reject)=>{
+            db.get().collection(collections.DONE_COLLECTION).deleteMany().then(()=>{
+                resolve()
+            })
+        })
+    },
+    deleteDoned:(id)=>{
+        return new Promise((resolve,reject)=>{
+            db.get().collection(collections.DONE_COLLECTION).deleteOne({_id:objId(id)}).then(()=>{
+                resolve()
+            })
         })
     }
 };
