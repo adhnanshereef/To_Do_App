@@ -87,7 +87,21 @@ router.get('/done-program/:text/:id',verifyLogin,(req,res)=>{
 router.get('/done',verifyLogin,async(req,res)=>{
   let done=await helper.getDone()
   console.log(done);
-  res.render('pages/done',{title:"To Do App | Done",me:req.session.me,done,program:done.program})
+    res.render('pages/done',{title:"To Do App | Done",me:req.session.me,done,program:done.program})
+})
+
+// Delete All Done
+router.get('/delete-all-done',verifyLogin,(req,res)=>{
+  helper.deleteAllDone().then(()=>{
+    res.json({success:true})
+  })
+})
+
+// Delete Done
+router.get('/delete-doned/:id',verifyLogin,(req,res)=>{
+  helper.deleteDoned(req.params.id).then(()=>{
+    res.json({success:true})
+  })
 })
 
 module.exports = router;

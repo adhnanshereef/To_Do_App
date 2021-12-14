@@ -13,6 +13,9 @@
         <li class="nav-item">
           <a class="nav-link text-light" href="/to-do"><i class="fas fa-clipboard-list"></i> To Do Today</a>
         </li>
+        {{#if done}}
+        <li class="nav-item"><a href="" class="nav-link text-light">done</a></li>
+        {{/if}}
       </ul>
       {{else}}
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-5">
