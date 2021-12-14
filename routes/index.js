@@ -47,6 +47,14 @@ router.get('/logout',verifyLogin,(req,res)=>{
   req.session.me=null
   res.redirect('/')
 })
+router.post('/logout',(req,res)=>{
+  if(req.session.me){
+    req.session.me=null
+    res.json({success:true})
+  }else{
+    res.json({success:false})
+  }
+})
 
 // To Do
 router.get('/to-do',verifyLogin,async(req,res)=>{
@@ -65,6 +73,21 @@ router.post('/new',verifyLogin,(req,res)=>{
     console.log(status);
     res.json(status)
   })
+})
+
+// Done program 
+router.get('/done-program/:text/:id',verifyLogin,(req,res)=>{
+  helper.doneProgram(req.params.text,req.params.id).then(()=>{
+    res.json({success:true})
+  })
+})
+
+// Done
+
+router.get('/done',verifyLogin,async(req,res)=>{
+  let done=await helper.getDone()
+  console.log(done);
+  res.render('pages/done',{title:"To Do App | Done",me:req.session.me,done,program:done.program})
 })
 
 module.exports = router;

@@ -23,7 +23,8 @@
       {{/if}}
       <ul class="navbar-nav">  
         {{#if me}}
-        <a href="/logout" class="button-outline" ><i class="fas fa-fingerprint"></i> Logout</a>
+        {{!-- <a href="/logout" class="button-outline" ><i class="fas fa-fingerprint"></i> Logout</a> --}}
+        <button onclick="logout()" class="button-outline" ><i class="fas fa-fingerprint"></i> Logout</button>
         {{else}} 
           <a href="/login" class="button-outline" ><i class="fas fa-fingerprint"></i> Login</a>
           {{/if}}

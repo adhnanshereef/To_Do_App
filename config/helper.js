@@ -32,5 +32,38 @@ module.exports = {
             let program=await db.get().collection(collections.PROGRAM_COLLECTION).findOne()
             resolve(program)
         })
+    },
+    doneProgram:(text,id)=>{
+        return new Promise(async(resolve,reject)=>{
+            console.log('o');
+            let program=await db.get().collection(collections.PROGRAM_COLLECTION).findOne({_id:objId(id)})
+            let done=await db.get().collection(collections.DONE_COLLECTION).findOne({programId:objId(id)})
+            if(done){
+                let textObj={text:program.program[0].text}
+                db.get().collection(collections.DONE_COLLECTION).updateOne({programId:objId(id)},{$push:{program:textObj}})
+            }else{
+               let programDetails={
+                programId:objId(id),
+                program:[
+                    {text:text}
+                ],
+                date:program.date
+              }
+              db.get().collection(collections.DONE_COLLECTION).insertOne(programDetails)
+            }
+                db.get().collection(collections.PROGRAM_COLLECTION).updateOne({_id:objId(id)},{$pull:{program:{text:text}}}).then(async()=>{
+                    let programChecking=await db.get().collection(collections.PROGRAM_COLLECTION).findOne({_id:objId(id)}) 
+                    if(programChecking.program.length==0){
+                        db.get().collection(collections.PROGRAM_COLLECTION).deleteOne({_id:objId(id)})
+                    }
+                    resolve()
+                })
+        })
+    },
+    getDone:()=>{
+        return new Promise(async(resolve,reject)=>{
+            let done = await db.get().collection(collections.DONE_COLLECTION).find().toArray()
+            resolve(done)
+        })
     }
 };
