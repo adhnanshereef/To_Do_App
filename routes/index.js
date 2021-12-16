@@ -33,8 +33,6 @@ router.get('/login',(req,res)=>{
 })
 
 router.post('/login',(req,res)=>{
-  console.log('helooo err');
-  console.log('keyy'+req.body.password);
   if(req.body.password==password){
     req.session.me=meDetails
     res.json({loginSuccess:true})
@@ -86,8 +84,7 @@ router.get('/done-program/:text/:id',verifyLogin,(req,res)=>{
 
 router.get('/done',verifyLogin,async(req,res)=>{
   let done=await helper.getDone()
-  console.log(done);
-    res.render('pages/done',{title:"To Do App | Done",me:req.session.me,done,program:done.program})
+    res.render('pages/done',{title:"To Do App | Done",me:req.session.me,done})
 })
 
 // Delete All Done
@@ -100,6 +97,35 @@ router.get('/delete-all-done',verifyLogin,(req,res)=>{
 // Delete Done
 router.get('/delete-doned/:id',verifyLogin,(req,res)=>{
   helper.deleteDoned(req.params.id).then(()=>{
+    res.json({success:true})
+  })
+})
+
+// Drop program 
+router.get('/drop-program/:text/:id',verifyLogin,(req,res)=>{
+  helper.dropProgram(req.params.text,req.params.id).then(()=>{
+    res.json({success:true})
+  })
+})
+
+
+// Drop
+
+router.get('/drop',verifyLogin,async(req,res)=>{
+  let drop=await helper.getDrop()
+    res.render('pages/drop',{title:"To Do App | Drop",me:req.session.me,drop})
+})
+
+// Delete All Drop
+router.get('/delete-all-drop',verifyLogin,(req,res)=>{
+  helper.deleteAllDrop().then(()=>{
+    res.json({success:true})
+  })
+})
+
+// Delete Drop
+router.get('/delete-droped/:id',verifyLogin,(req,res)=>{
+  helper.deleteDroped(req.params.id).then(()=>{
     res.json({success:true})
   })
 })
