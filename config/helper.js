@@ -1,10 +1,24 @@
 var db = require("../config/connection");
 var collections = require("../config/collections");
-// const bcrypt = require("bcrypt");
+const bcrypt = require("bcrypt");
 var objId = require("mongodb").ObjectId;
 
 
 module.exports = {
+    doLogin:(key)=>{
+        return new Promise((resolve,reject)=>{
+            let password="$2b$10$/847nbCEGpL99STKAfXvuuL1UqCoxqQez3HnWpaRxCbtEGSTQKoRC"
+            let response=false
+            bcrypt.compare(key,password).then((status)=>{
+                if(status){
+                    response=true
+                    resolve(response)
+                }else{
+                    resolve(response)
+                }
+            })
+        })
+    },
     addProgram:(programs)=>{
         return new Promise(async(resolve,reject)=>{
             let program=await db.get().collection(collections.PROGRAM_COLLECTION).findOne()

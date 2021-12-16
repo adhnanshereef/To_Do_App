@@ -1,7 +1,6 @@
 var express = require('express');
 var router = express.Router();
 const helper=require('../config/helper')
-const password="todoapp"
 let meDetails={
   id:"19qp28wo37ei0",
   name:"Adhnan Shereef T"
@@ -33,12 +32,14 @@ router.get('/login',(req,res)=>{
 })
 
 router.post('/login',(req,res)=>{
-  if(req.body.password==password){
-    req.session.me=meDetails
-    res.json({loginSuccess:true})
-  }else{
-    res.json({loginSuccess:false})
-  }
+  helper.doLogin(req.body.password).then((resonse)=>{
+    if(resonse){
+      req.session.me=meDetails
+      res.json({loginSuccess:true})
+    }else{
+        res.json({loginSuccess:false})
+      }
+    })
 })
 
 router.get('/logout',verifyLogin,(req,res)=>{
