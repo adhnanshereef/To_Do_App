@@ -86,3 +86,40 @@ function deleteDoned(id){
   })
 }
 
+// Droped program
+
+function dropProgram(text,programId){
+  $.ajax({
+    url:'/drop-program/'+text+'/'+programId,
+    method:'get',
+    success:(response)=>{
+      if(response.success==true){
+        location.reload()
+      }
+    }
+  })
+}
+
+function deleteAllDrop(){
+  $.ajax({
+    url:'/delete-all-drop',
+    method:'get',
+    success:(response)=>{
+      if(response.success==true){
+        location.reload()
+      }
+    }
+  })
+}
+function deleteDroped(id){
+  $.ajax({
+    url:'/delete-droped/'+id,
+    method:'get',
+    success:(response)=>{
+      if(response.success==true){
+        location.reload()
+      }
+    }
+  })
+}
+

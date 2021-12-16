@@ -1,9 +1,9 @@
 :root {
-    --primary: rgb(3, 40, 65);
+    --primary: #040c18;
     --secondary: #fff;
     --shadow: #013f5c;
     --danger: #ff4136;
     --success: #28a745;
     --light-shadow: rgb(195, 222, 231);
-    --pri-light:rgba(3, 28, 65, 0.089);
+    --pri-light: #040c1831;
   }
