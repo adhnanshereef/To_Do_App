@@ -9,7 +9,7 @@
 
 body {
   background: var(--primary);
-  color: var(--secondary) !important;
+  color: var(--secondary) ;
 }
 
 ::-webkit-scrollbar {
@@ -33,24 +33,38 @@ body {
   background-size: cover;
   background-position: center;
 }
-.bg{
+.bg
+{
+
     /* ff 3.6+ */
-    background:-moz-linear-gradient(90deg, rgba(0, 40, 83, 1) 10%, rgba(4, 12, 24, 1) 100%); 
+    background:-moz-linear-gradient(90deg, rgba(0, 40, 83, 1) 50%, rgba(4, 12, 24, 1) 100%); 
 
     /* safari 5.1+,chrome 10+ */
-    background:-webkit-linear-gradient(90deg, rgba(0, 40, 83, 1) 10%, rgba(4, 12, 24, 1) 100%);
+    background:-webkit-linear-gradient(90deg, rgba(0, 40, 83, 1) 50%, rgba(4, 12, 24, 1) 100%);
 
     /* opera 11.10+ */
-    background:-o-linear-gradient(90deg, rgba(0, 40, 83, 1) 10%, rgba(4, 12, 24, 1) 100%);
+    background:-o-linear-gradient(90deg, rgba(0, 40, 83, 1) 50%, rgba(4, 12, 24, 1) 100%);
 
     /* ie 6-9 */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#040C18', endColorstr='#002853', GradientType=0 );
 
     /* ie 10+ */
-    background:-ms-linear-gradient(90deg, rgba(0, 40, 83, 1) 10%, rgba(4, 12, 24, 1) 100%);
+    background:-ms-linear-gradient(90deg, rgba(0, 40, 83, 1) 50%, rgba(4, 12, 24, 1) 100%);
 
     /* global 94%+ browsers support */
-    background:linear-gradient(90deg, rgba(0, 40, 83, 1) 10%, rgba(4, 12, 24, 1) 100%);
+    background:linear-gradient(90deg, rgba(0, 40, 83, 1) 50%, rgba(4, 12, 24, 1) 100%);
+
+}
+.mt--3{
+  margin-top: -10px;
+}
+
+.gradient-text{
+  background: var(--gradient-text);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 50px;
 }
 
 .mixture{
@@ -66,6 +80,11 @@ body {
   /* background: var(--pri-light); */
   background: linear-gradient(to bottom,var(--primary),var(--pri-light));
   margin-bottom: 200px;
+}
+.mixture-inv-footer{
+  width: 100%;
+  height: 50px;
+  background: linear-gradient(to bottom,var(--primary),var(--pri-light));
 }
 
 .padding-top{
@@ -165,9 +184,5 @@ body {
 
 .box{
   max-height: 300px;
-  overflow-y: scroll;
-}
-.box{
-  max-height: 150px;
   overflow-y: scroll;
 }
