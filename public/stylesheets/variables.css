@@ -1,10 +1,10 @@
 :root {
-    --primary: #040c18;
-    --secondary: #fff;
-    --shadow: #013f5c;
-    --danger: #ff4136;
-    --success: #28a745;
-    --light-shadow: rgb(195, 222, 231);
-    --pri-light: #040c1831;
-    --gradient-text: linear-gradient(89.97deg, #AE67FA 1.84%, #F49867 102.67%);
-  }
+  --primary: #040c18;
+  --secondary: #fff;
+  --shadow: #013f5c;
+  --danger: #ff4136;
+  --success: #28a745;
+  --light-shadow: rgb(195, 222, 231);
+  --pri-light: #040c1831;
+  --gradient-text: linear-gradient(89.97deg, #ae67fa 1.84%, #f49867 102.67%);
+}
